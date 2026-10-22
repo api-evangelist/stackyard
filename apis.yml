@@ -1,23 +1,74 @@
 aid: stackyard
-name: Stackyard
-description: 'Stackyard is a company surfaced via the API Evangelist harvest backlog (source: manual)
-  and added to the network as a stub for full-pipeline profiling.'
+
+name: StackYard
+
+description: StackYard (stackyard.ai) is a directory and marketplace for AI products, operated by Arty Fishall LLC, a Delaware limited liability company. It lets buyers compare models, agents, infrastructure and developer tools, read reviews tied to verified work emails, and lets AI vendors list products free with optional labeled paid placement. No public developer API, documentation or SDK is published; the site's front end calls an undocumented JSON backend at api.stackyard.ai.
+
 url: https://raw.githubusercontent.com/api-evangelist/stackyard/refs/heads/main/apis.yml
+
 x-type: company
+
 x-source: harvest:manual
-x-tier: stub
-x-tier-reason: harvest
+
+x-tier: profiled
+
+x-tier-reason: enrichment pass 2026-10-19 (local-v5; was harvest)
+
 specificationVersion: '0.20'
+
 created: '2026-10-19'
+
 modified: '2026-10-19'
+
 tags:
 - Company
-apis: []
+- Artificial Intelligence
+- Marketplace
+- Directory
+- Reviews
+- AI Tools
+
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+
 common:
+- type: Hosts
+  url: hosts/stackyard-hosts.yml
+- type: Vendors
+  url: vendors/stackyard-vendors.yml
+- type: DomainSecurity
+  url: security/stackyard-domain-security.yml
 - type: Website
   url: https://stackyard.ai/
+- type: TermsOfService
+  url: https://stackyard.ai/legal
+- type: PrivacyPolicy
+  url: https://stackyard.ai/privacy
+- type: SignUp
+  url: https://stackyard.ai/vendor
+
+apis: []
+
+x-coverage:
+  state: none
+  reason: no-developer-program
+  detail: 'StackYard publishes no developer docs, API reference or spec: /docs, /llms.txt and /pricing on stackyard.ai return 404 and api.stackyard.ai only serves an undocumented JSON backend for its own web front end (/api/search, /api/categories/counts) with no /openapi.json.'
+  evidence:
+  - url: https://stackyard.ai/docs
+    status: 404
+  - url: https://stackyard.ai/llms.txt
+    status: 404
+  - url: https://api.stackyard.ai/openapi.json
+    status: 404
+  - url: https://api.stackyard.ai/api/categories/counts
+    status: 200
+  checked: '2026-10-19'
+
+x-enrichment:
+  date: '2026-10-19'
+  status: minimal
+  artifacts_added: 0
+  pass: local-v5
